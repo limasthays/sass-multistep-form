@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body{
+  background-color: $magnolia;
+  background-image: url("../assets/images/bg-sidebar-mobile.svg"); 
+  background-repeat: no-repeat;
+  padding: 16px;
+}
