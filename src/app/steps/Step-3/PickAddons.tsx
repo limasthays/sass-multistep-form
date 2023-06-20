@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form'
 function PickAddons() {
 	const { register } = useFormContext()
 	return (
-		<section>
+		<>
 			<div>
 				<h2>Pick add-ons</h2>
 				<p>Add-ons help enhance your gaming experience.</p>
@@ -38,7 +38,7 @@ function PickAddons() {
 				/>
 				<label htmlFor="Customizable profile">Customizable profile</label>
 			</div>
-		</section>
+		</>
 	)
 }
 

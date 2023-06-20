@@ -4,7 +4,7 @@ function SelectYourPlan() {
 	const { register } = useFormContext()
 
 	return (
-		<section>
+		<>
 			<div>
 				<h2>Select your plan</h2>
 				<p>You have the option of monthly or yearly billing.</p>
@@ -39,7 +39,7 @@ function SelectYourPlan() {
 				/>
 				<span>yearly</span>
 			</div>
-		</section>
+		</>
 	)
 }
 

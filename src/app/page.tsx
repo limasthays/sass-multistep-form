@@ -7,6 +7,8 @@ import PickAddons from './steps/Step-3/PickAddons'
 import FinishingUp from './steps/Step-4/FinishingUp'
 import { useMultistepForm } from './hooks/useMultistepForm'
 import { FormProvider, useForm } from 'react-hook-form'
+import './styles/global.scss'
+import ContentContainer from './components/containers/Content'
 
 export default function Home() {
 	const steps = [
@@ -44,10 +46,9 @@ export default function Home() {
 					)
 				})}
 			</div>
-
 			<FormProvider {...methods}>
 				<form onSubmit={methods.handleSubmit(onSubmitMainForm)}>
-					{steps[currentStepIndex]}
+					<ContentContainer>{steps[currentStepIndex]}</ContentContainer>
 				</form>
 			</FormProvider>
 		</main>
