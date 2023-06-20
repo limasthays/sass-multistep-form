@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+
+.personal-inputs{
+  margin: 22px 0px;
+  @include flexbox-column-centered(16px);
+
+  div{
+    @include flexbox-column-centered(4px);
+
+    label{
+      font-size: 12px;
+      color: $marine-blue;
+    }
+  
+    input{
+      border: 1px solid $light-gray;
+      height: 40px;
+      padding: 16px 8px;
+      border-radius: $br-sm;
+
+      &::placeholder{
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 500;
+        color: $cool-gray;
+      }
+    }
+  }
+}
