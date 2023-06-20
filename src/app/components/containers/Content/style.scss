@@ -1,0 +1,21 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+
+section{
+  background-color: $white;
+  border-radius: $br-lg;
+  box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
+  padding: 24px;
+  
+  h2{
+    color: $marine-blue;
+    font-size: 24px;
+  }
+  
+  p{
+    margin-top: 6px;
+    color: $cool-gray;
+    font-size: 16px;
+  }
+}
