@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+
+.step-button{
+  border: 1px solid $white;
+  border-radius: 100%;
+  background-color: transparent;
+  text-align: center;
+  width: 33px;
+  height: 33px;
+  color: $white;
+  font-weight: 700;
+  cursor: pointer;
+
+  &.step-active{
+    background-color: $light-blue;
+    color: $marine-blue;
+    border: none;
+  }
+}

@@ -1,5 +1,6 @@
 'use client'
 
+import './styles/global.scss'
 import { nanoid } from 'nanoid'
 import PersonalInfo from './steps/Step-1/PersonalInfo'
 import SelectYourPlan from './steps/Step-2/SelectYourPlan'
@@ -7,8 +8,10 @@ import PickAddons from './steps/Step-3/PickAddons'
 import FinishingUp from './steps/Step-4/FinishingUp'
 import { useMultistepForm } from './hooks/useMultistepForm'
 import { FormProvider, useForm } from 'react-hook-form'
-import './styles/global.scss'
 import ContentContainer from './components/containers/Content'
+import GroupStepButtons from './components/layouts/GroupStepButtons'
+import StepButton from './components/buttons/StepButton'
+import FormStepControl from './components/layouts/FormStepControl'
 
 export default function Home() {
 	const steps = [
@@ -24,33 +27,34 @@ export default function Home() {
 		console.log('all my data: ', data)
 	}
 
-	const { currentStepIndex, nextStep, backStep, goToStep } =
-		useMultistepForm(steps)
-
-	console.log('my data: ', methods.watch('name'))
+	const {
+		currentStepIndex,
+		nextStep,
+		backStep,
+		goToStep,
+		isFirstStep,
+		isLastStep,
+	} = useMultistepForm(steps)
 
 	return (
 		<main>
-			<div>
-				{steps.map((_, index) => {
-					return (
-						<button
-							type="button"
-							key={index}
-							onClick={() => {
-								goToStep(index)
-							}}
-						>
-							{index + 1}
-						</button>
-					)
-				})}
-			</div>
+			<GroupStepButtons
+				currentStepIndex={currentStepIndex}
+				goToStep={goToStep}
+				steps={steps}
+			/>
 			<FormProvider {...methods}>
 				<form onSubmit={methods.handleSubmit(onSubmitMainForm)}>
 					<ContentContainer>{steps[currentStepIndex]}</ContentContainer>
 				</form>
 			</FormProvider>
+
+			<FormStepControl
+				backStep={backStep}
+				nextStep={nextStep}
+				isFirstStep={isFirstStep}
+				isLastStep={isLastStep}
+			/>
 		</main>
 	)
 }

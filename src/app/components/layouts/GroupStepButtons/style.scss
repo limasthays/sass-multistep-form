@@ -1,0 +1,9 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.step-buttons-container{
+  display: flex;
+  justify-content: center;
+  margin: 32px 0px;
+  gap: 16px;
+}
