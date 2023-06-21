@@ -10,7 +10,6 @@ import { useMultistepForm } from './hooks/useMultistepForm'
 import { FormProvider, useForm } from 'react-hook-form'
 import ContentContainer from './components/containers/Content'
 import GroupStepButtons from './components/layouts/GroupStepButtons'
-import StepButton from './components/buttons/StepButton'
 import FormStepControl from './components/layouts/FormStepControl'
 
 export default function Home() {
@@ -21,7 +20,7 @@ export default function Home() {
 		<FinishingUp key={nanoid()} />,
 	]
 
-	const methods = useForm()
+	const methods = useForm({ mode: 'all' })
 
 	const onSubmitMainForm = (data: any) => {
 		console.log('all my data: ', data)
@@ -47,14 +46,13 @@ export default function Home() {
 				<form onSubmit={methods.handleSubmit(onSubmitMainForm)}>
 					<ContentContainer>{steps[currentStepIndex]}</ContentContainer>
 				</form>
+				<FormStepControl
+					backStep={backStep}
+					nextStep={nextStep}
+					isFirstStep={isFirstStep}
+					isLastStep={isLastStep}
+				/>
 			</FormProvider>
-
-			<FormStepControl
-				backStep={backStep}
-				nextStep={nextStep}
-				isFirstStep={isFirstStep}
-				isLastStep={isLastStep}
-			/>
 		</main>
 	)
 }

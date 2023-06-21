@@ -1,7 +1,9 @@
+import ToggleButton from '@/app/components/buttons/ToggleButton'
 import { useFormContext } from 'react-hook-form'
 
 function SelectYourPlan() {
 	const { register } = useFormContext()
+	register('plan', { required: 'please choose a plan' })
 
 	return (
 		<>
@@ -31,13 +33,17 @@ function SelectYourPlan() {
 			</div>
 
 			<div>
-				<span>monthly</span>
+				{/* <span>monthly</span>
 				<input
 					type="checkbox"
 					id="plan_billing"
 					{...register('plan_billing')}
 				/>
-				<span>yearly</span>
+				<span>yearly</span> */}
+				<span>Monthly</span>
+
+				<ToggleButton />
+				<span>Yearly</span>
 			</div>
 		</>
 	)

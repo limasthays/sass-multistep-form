@@ -18,7 +18,9 @@ function PersonalInfo() {
 						type="text"
 						id="name"
 						placeholder="e.g. Stephen King"
-						{...register('name')}
+						{...register('name', {
+							required: 'Name field is required',
+						})}
 					/>
 				</div>
 
@@ -28,7 +30,9 @@ function PersonalInfo() {
 						type="text"
 						id="email"
 						placeholder="e.g. stephenking@lorem.com"
-						{...register('email')}
+						{...register('email', {
+							required: 'Email field is required',
+						})}
 					/>
 				</div>
 
@@ -38,7 +42,7 @@ function PersonalInfo() {
 						type="text"
 						id="phone"
 						placeholder="e.g. +1 234 567 890"
-						{...register('phone')}
+						{...register('phone', { required: 'Phone field is required' })}
 					/>
 				</div>
 			</div>

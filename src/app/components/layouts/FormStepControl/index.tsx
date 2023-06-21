@@ -1,3 +1,4 @@
+import { useFormContext } from 'react-hook-form'
 import StepControl from '../../buttons/StepControl'
 import './style.scss'
 
@@ -14,6 +15,8 @@ function FormStepControl({
 	nextStep,
 	backStep,
 }: FormStepControlProps) {
+	const { formState } = useFormContext()
+
 	return (
 		<div className="container-step-control">
 			<div>
@@ -32,7 +35,7 @@ function FormStepControl({
 					<StepControl
 						title="Next Step"
 						variant="primary"
-						isDisabled={false}
+						isDisabled={!formState.isValid}
 						handleStepControl={nextStep}
 					/>
 				)}

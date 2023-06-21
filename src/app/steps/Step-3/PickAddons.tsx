@@ -2,6 +2,7 @@ import { useFormContext } from 'react-hook-form'
 
 function PickAddons() {
 	const { register } = useFormContext()
+
 	return (
 		<>
 			<div>
