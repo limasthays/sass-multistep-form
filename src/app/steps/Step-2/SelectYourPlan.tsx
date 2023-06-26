@@ -1,8 +1,8 @@
-import ToggleButton from '@/app/components/buttons/ToggleButton'
-import { useFormContext } from 'react-hook-form'
+import { Controller, useFormContext } from 'react-hook-form'
+import { ToggleButton } from '@/app/components/buttons/ToggleButton'
 
 function SelectYourPlan() {
-	const { register } = useFormContext()
+	const { register, setValue } = useFormContext()
 	register('plan', { required: 'please choose a plan' })
 
 	return (
@@ -33,16 +33,24 @@ function SelectYourPlan() {
 			</div>
 
 			<div>
-				{/* <span>monthly</span>
-				<input
-					type="checkbox"
-					id="plan_billing"
-					{...register('plan_billing')}
-				/>
-				<span>yearly</span> */}
 				<span>Monthly</span>
 
-				<ToggleButton />
+				<Controller
+					name="plan_billing"
+					defaultValue="Monthly"
+					rules={{
+						onChange: (event) => {
+							setValue(
+								'plan_billing',
+								event.target.value === true ? 'Yearly' : 'Monthly'
+							)
+						},
+					}}
+					render={({ field }) => {
+						return <ToggleButton {...field} />
+					}}
+				/>
+
 				<span>Yearly</span>
 			</div>
 		</>
