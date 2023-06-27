@@ -1,9 +1,9 @@
-import { Controller, useFormContext } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import { ToggleButton } from '@/app/components/buttons/ToggleButton'
+import GroupOptionCards from './components/plan-option-section/GroupOptionCards'
 
 function SelectYourPlan() {
-	const { register, setValue } = useFormContext()
-	register('plan', { required: 'please choose a plan' })
+	const { register } = useFormContext()
 
 	return (
 		<>
@@ -12,44 +12,12 @@ function SelectYourPlan() {
 				<p>You have the option of monthly or yearly billing.</p>
 			</div>
 
-			<div>
-				<input type="radio" value="Arcade" id="Arcade" {...register('plan')} />
-				<label htmlFor="Arcade">Arcade</label>
-			</div>
-
-			<div>
-				<input
-					type="radio"
-					value="Advanced"
-					id="Advanced"
-					{...register('plan')}
-				/>
-				<label htmlFor="Advanced">Advanced</label>
-			</div>
-
-			<div>
-				<input type="radio" value="Pro" id="Pro" {...register('plan')} />
-				<label htmlFor="Pro">Pro</label>
-			</div>
+			<GroupOptionCards />
 
 			<div>
 				<span>Monthly</span>
 
-				<Controller
-					name="plan_billing"
-					defaultValue="Monthly"
-					rules={{
-						onChange: (event) => {
-							setValue(
-								'plan_billing',
-								event.target.value === true ? 'Yearly' : 'Monthly'
-							)
-						},
-					}}
-					render={({ field }) => {
-						return <ToggleButton {...field} />
-					}}
-				/>
+				<ToggleButton {...register('plan_billing')} />
 
 				<span>Yearly</span>
 			</div>

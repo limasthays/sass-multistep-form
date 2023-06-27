@@ -11,7 +11,7 @@ export const ToggleButton = React.forwardRef<
 	return (
 		<div className="toggle-container">
 			<label className="switch">
-				<input type="checkbox" {...props} ref={ref} />
+				<input type="checkbox" {...props} ref={ref} defaultChecked={false} />
 				<span className="slider round"></span>
 			</label>
 		</div>

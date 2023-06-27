@@ -1,0 +1,42 @@
+@import "../../../../../styles/variables.scss";
+
+.option-card{
+  input{
+    display: none;
+  }
+
+  border: 1px solid $light-gray;
+  border-radius: $br-lg;
+  padding: 16px;
+
+  &.option-checked{
+    border: 1px solid $purplish-blue;
+  }
+
+  .opt-content{
+    display: flex;
+    gap: 14px;
+
+    .plan-description{
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .plan-title{
+        font-weight: 500;
+        color: $marine-blue;
+      }
+
+      .plan-price{
+        font-size: 14px;
+        color: $cool-gray;
+      }
+
+      .plan-promo{
+        color: $marine-blue;
+        font-size: 12px;
+        
+      }
+    }
+  }
+}
