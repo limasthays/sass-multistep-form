@@ -1,0 +1,45 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.addon-container{
+  border: 1px solid $light-gray;
+  border-radius: $br-md;
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;  
+  
+  div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .addon-title{
+    color: $marine-blue;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .addon-description{
+    color: $cool-gray;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .addon-price{
+    color: $purplish-blue;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  &.addon-active{
+    border: 1px solid $purplish-blue;
+  }
+}
+
+
+
+
+ 
