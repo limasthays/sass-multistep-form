@@ -1,26 +1,9 @@
 import { useFormContext } from 'react-hook-form'
 import { AddonCard } from '../../cards/addon-card/AddonCard'
+import { addons } from '@/app/data/step3-addons'
 import './style.scss'
 
 function CardsAddonOptions() {
-	const addonOptions = [
-		{
-			title: 'Online service',
-			description: 'Access to multiplayer games',
-			price: 1,
-		},
-		{
-			title: 'Larger storage',
-			description: 'Extra 1TB of cloud save',
-			price: 2,
-		},
-		{
-			title: 'Customizable profile',
-			description: 'Custom theme on your profile',
-			price: 2,
-		},
-	]
-
 	const { watch } = useFormContext()
 
 	const getSelectedOptions = () => {
@@ -32,7 +15,7 @@ function CardsAddonOptions() {
 
 	return (
 		<div className="addon-cards-container">
-			{addonOptions.map((item) => {
+			{addons.map((item) => {
 				const isOptionSelected = getSelectedOptions().includes(item.title)
 				return (
 					<AddonCard
