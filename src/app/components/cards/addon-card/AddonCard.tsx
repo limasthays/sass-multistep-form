@@ -20,9 +20,7 @@ export const AddonCard = ({
 		<>
 			<label htmlFor={title}>
 				<div
-					className={`addon-container ${
-						isOptionSelected ? 'addon-active' : ''
-					} `}
+					className={`addon-card ${isOptionSelected ? 'addon-active' : ''} `}
 				>
 					<input
 						type="checkbox"
