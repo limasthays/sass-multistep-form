@@ -14,9 +14,15 @@ function PlanCard() {
 
 			<hr />
 
-			<div className="addon-card">
-				<span className="addon-title">Addon title</span>
-				<span className="addon-price">+1/mo</span>
+			<div className="addons-container">
+				<div className="addon-opt-card">
+					<span className="addon-opt-title">Addon title</span>
+					<span className="addon-opt-price">+1/mo</span>
+				</div>
+				<div className="addon-opt-card">
+					<span className="addon-opt-title">Addon title</span>
+					<span className="addon-opt-price">+1/mo</span>
+				</div>
 			</div>
 		</div>
 	)

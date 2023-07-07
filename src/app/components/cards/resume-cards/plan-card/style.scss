@@ -4,9 +4,17 @@
   background-color: $alabaster;
   border-radius: $br-md;
   padding: 16px;
+  margin: 22px 0px;
 
   display: flex;
   flex-direction: column;
+
+  hr{
+    border: 1px solid $cool-gray;
+    opacity: 0.3;
+    margin: 12px 0px;
+    padding: 0px 16px;
+  }
   
   .submited-plan{
     display: flex;
@@ -26,7 +34,11 @@
 
       button{
         background-color: transparent;
-        text-decoration: underline;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-decoration-line: underline;
         color: $cool-gray;
       }
     }
@@ -37,5 +49,28 @@
       font-size: 14px;
     }
 
+  }
+
+  .addons-container{
+    display: flex;
+    flex-direction: column;
+
+    .addon-opt-card{
+      display: flex;
+      justify-content: space-between;
+
+      .addon-opt-title{
+        color: $cool-gray;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+      }
+      .addon-opt-price{
+        color: $marine-blue;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+      }
+    }
   }
 }
