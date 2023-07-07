@@ -1,9 +1,15 @@
 import { useFormContext } from 'react-hook-form'
 import { ToggleButton } from '@/app/components/buttons/ToggleButton'
 import GroupOptionCards from './components/plan-option-section/GroupOptionCards'
+import { useEffect, useState } from 'react'
 
 function SelectYourPlan() {
 	const { setValue } = useFormContext()
+	const [planBilling, setPlanBilling] = useState<boolean>(false)
+
+	useEffect(() => {
+		setValue('plan_billing', planBilling === false ? 'monthly' : 'yearly')
+	}, [planBilling])
 
 	return (
 		<>
@@ -19,13 +25,7 @@ function SelectYourPlan() {
 
 				<ToggleButton
 					onChange={(event) => {
-						setValue(
-							'plan_billing',
-							event.target.checked === false ? 'monthly' : 'yearly',
-							{
-								shouldValidate: true,
-							}
-						)
+						setPlanBilling(event.target.checked)
 					}}
 				/>
 

@@ -1,14 +1,14 @@
-import { useFormContext } from 'react-hook-form'
+import { useWatch } from 'react-hook-form'
 import { AddonCard } from '../../cards/addon-card/AddonCard'
 import { addons } from '@/app/data/step3-addons'
 import './style.scss'
 
 function CardsAddonOptions() {
-	const { watch } = useFormContext()
+	const { addon } = useWatch()
 
 	const getSelectedOptions = () => {
-		if (watch('addon')) {
-			return watch('addon') as string[]
+		if (addon) {
+			return addon as string[]
 		}
 		return ['']
 	}

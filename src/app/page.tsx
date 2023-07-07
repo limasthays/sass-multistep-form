@@ -28,6 +28,7 @@ export default function Home() {
 			phone: '',
 			plan_billing: 'monthly',
 			plan: '',
+			addon: [''],
 		},
 	})
 

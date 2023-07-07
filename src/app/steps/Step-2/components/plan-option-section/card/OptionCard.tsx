@@ -1,6 +1,6 @@
 import { useFormContext, useWatch } from 'react-hook-form'
 import './style.scss'
-import { MouseEventHandler, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 type OptionCardProps = {
 	title: string
@@ -23,7 +23,7 @@ function OptionCard({ title, icon, price, promoCall }: OptionCardProps) {
 	return (
 		<div
 			className={`option-card ${
-				useWatch().plan === title ? 'option-checked' : ''
+				useWatch().plan.includes(title) ? 'option-checked' : ''
 			}`}
 		>
 			<input
@@ -33,7 +33,10 @@ function OptionCard({ title, icon, price, promoCall }: OptionCardProps) {
 					setValue('plan', event.target.value, { shouldValidate: true })
 				}}
 				id={title}
-				value={title}
+				value={JSON.stringify({
+					option: title,
+					price: price[plan_billing as 'monthly' | 'yearly'],
+				})}
 			/>
 			<label htmlFor={title}>
 				<div className="opt-content">
