@@ -3,7 +3,7 @@ import { ToggleButton } from '@/app/components/buttons/ToggleButton'
 import GroupOptionCards from './components/plan-option-section/GroupOptionCards'
 
 function SelectYourPlan() {
-	const { register } = useFormContext()
+	const { setValue } = useFormContext()
 
 	return (
 		<>
@@ -17,7 +17,17 @@ function SelectYourPlan() {
 			<div>
 				<span>Monthly</span>
 
-				<ToggleButton {...register('plan_billing')} />
+				<ToggleButton
+					onChange={(event) => {
+						setValue(
+							'plan_billing',
+							event.target.checked === false ? 'monthly' : 'yearly',
+							{
+								shouldValidate: true,
+							}
+						)
+					}}
+				/>
 
 				<span>Yearly</span>
 			</div>

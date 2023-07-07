@@ -5,12 +5,9 @@ import { plans } from '@/app/data/step2-plans'
 import './style.scss'
 
 function GroupOptionCards() {
-	const { watch, register } = useFormContext()
-	const planBilling = watch('plan_billing') === true ? 'yearly' : 'monthly'
+	const { register } = useFormContext()
 
 	register('plan', { required: true })
-
-	console.log('vejaaa: ', watch())
 
 	return (
 		<div className="plan-cards">
@@ -21,7 +18,6 @@ function GroupOptionCards() {
 					icon={opt.icon}
 					price={opt.price}
 					promoCall={opt.promoCall}
-					plan_billing={planBilling}
 				/>
 			))}
 		</div>

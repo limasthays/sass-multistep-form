@@ -1,6 +1,6 @@
-import { useFormContext } from 'react-hook-form'
+import { useFormContext, useWatch } from 'react-hook-form'
 import './style.scss'
-import { ReactNode } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 
 type OptionCardProps = {
 	title: string
@@ -9,32 +9,32 @@ type OptionCardProps = {
 		monthly: number
 		yearly: number
 	}
-	promoCall?: string
-
-	plan_billing: 'yearly' | 'monthly'
+	promoCall: string
 }
 
-function OptionCard({
-	title,
-	icon,
-	price,
-	promoCall,
-	plan_billing,
-}: OptionCardProps) {
+function OptionCard({ title, icon, price, promoCall }: OptionCardProps) {
+	const { setValue } = useFormContext()
+	const { plan_billing } = useWatch()
+
 	const pricingMode = {
 		monthly: '/mo',
 		yearly: '/yr',
 	}
-
-	const { register, watch } = useFormContext()
-
 	return (
 		<div
 			className={`option-card ${
-				watch('plan') === title ? 'option-checked' : ''
+				useWatch().plan === title ? 'option-checked' : ''
 			}`}
 		>
-			<input type="radio" {...register('plan')} id={title} value={title} />
+			<input
+				type="radio"
+				onClick={(event) => {
+					event.preventDefault()
+					setValue('plan', event.target.value, { shouldValidate: true })
+				}}
+				id={title}
+				value={title}
+			/>
 			<label htmlFor={title}>
 				<div className="opt-content">
 					{icon}
@@ -42,8 +42,8 @@ function OptionCard({
 					<div className="plan-description">
 						<span className="plan-title">{title}</span>
 						<span className="plan-price">
-							${price[plan_billing]}
-							{pricingMode[plan_billing]}
+							${price[plan_billing as 'monthly' | 'yearly']}
+							{pricingMode[plan_billing as 'monthly' | 'yearly']}
 						</span>
 						{plan_billing === 'yearly' && (
 							<span className="plan-promo">{promoCall}</span>
