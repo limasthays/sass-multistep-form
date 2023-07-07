@@ -1,8 +1,10 @@
+import './style.scss'
+
 function TotalCard() {
 	return (
-		<div>
-			<span>Total (per month/year)</span>
-			<span>+$12</span>
+		<div className="resume-total-card">
+			<span className="total-billing">Total (per month/year)</span>
+			<span className="total-price">+$12</span>
 		</div>
 	)
 }
