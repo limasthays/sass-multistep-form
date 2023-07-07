@@ -20,7 +20,16 @@ export default function Home() {
 		<FinishingUp key={nanoid()} />,
 	]
 
-	const methods = useForm({ mode: 'all' })
+	const methods = useForm({
+		mode: 'all',
+		defaultValues: {
+			name: '',
+			email: '',
+			phone: '',
+			plan_billing: 'monthly',
+			plan: '',
+		},
+	})
 
 	const onSubmitMainForm = (data: any) => {
 		console.log('all my data: ', data)
