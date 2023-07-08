@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid'
 import './style.scss'
 import { ResumeSelectedPlan } from '@/app/steps/Step-4/types'
+import { useContext } from 'react'
+import { FormStepsContext } from '@/app/contexts/FormStepsContexts'
 
 function PlanCard({ addons, plan, plan_billing }: ResumeSelectedPlan) {
 	const billingMode = {
@@ -8,8 +10,7 @@ function PlanCard({ addons, plan, plan_billing }: ResumeSelectedPlan) {
 		monthly: '/mo',
 	}
 
-	// console.log(addons)
-
+	const { goToStep } = useContext(FormStepsContext)
 	return (
 		<div className="resume-plan-card">
 			<div className="submited-plan">
@@ -17,7 +18,14 @@ function PlanCard({ addons, plan, plan_billing }: ResumeSelectedPlan) {
 					<span>
 						{plan.option} ({plan_billing})
 					</span>
-					<button type="button">Change</button>
+					<button
+						type="button"
+						onClick={() => {
+							goToStep(1)
+						}}
+					>
+						Change
+					</button>
 				</div>
 
 				<span className="resume-plan-total">

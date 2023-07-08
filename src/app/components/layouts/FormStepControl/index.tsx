@@ -1,21 +1,14 @@
 import { useFormContext } from 'react-hook-form'
 import StepControl from '../../buttons/StepControl'
 import './style.scss'
+import { useContext } from 'react'
+import { FormStepsContext } from '@/app/contexts/FormStepsContexts'
 
-type FormStepControlProps = {
-	isFirstStep: boolean
-	isLastStep: boolean
-	nextStep: () => void
-	backStep: () => void
-}
-
-function FormStepControl({
-	isFirstStep,
-	isLastStep,
-	nextStep,
-	backStep,
-}: FormStepControlProps) {
+function FormStepControl() {
 	const { formState } = useFormContext()
+
+	const { isFirstStep, isLastStep, backStep, nextStep } =
+		useContext(FormStepsContext)
 
 	return (
 		<div className="container-step-control">
@@ -39,6 +32,7 @@ function FormStepControl({
 						handleStepControl={nextStep}
 					/>
 				)}
+				{isLastStep && <button type="submit">Submit!</button>}
 			</div>
 		</div>
 	)
