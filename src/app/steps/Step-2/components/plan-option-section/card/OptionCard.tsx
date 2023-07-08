@@ -29,13 +29,12 @@ function OptionCard({ title, icon, price, promoCall }: OptionCardProps) {
 			<input
 				type="radio"
 				onClick={(event) => {
-					event.preventDefault()
 					setValue('plan', event.target.value, { shouldValidate: true })
 				}}
 				id={title}
 				value={JSON.stringify({
 					option: title,
-					price: price[plan_billing as 'monthly' | 'yearly'],
+					price: price,
 				})}
 			/>
 			<label htmlFor={title}>

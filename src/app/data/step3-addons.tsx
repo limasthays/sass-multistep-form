@@ -2,16 +2,25 @@ export const addons = [
 	{
 		title: 'Online service',
 		description: 'Access to multiplayer games',
-		price: 1,
+		price: {
+			monthly: 1,
+			yearly: 10,
+		},
 	},
 	{
 		title: 'Larger storage',
 		description: 'Extra 1TB of cloud save',
-		price: 2,
+		price: {
+			monthly: 2,
+			yearly: 20,
+		},
 	},
 	{
 		title: 'Customizable profile',
 		description: 'Custom theme on your profile',
-		price: 2,
+		price: {
+			monthly: 2,
+			yearly: 20,
+		},
 	},
 ]

@@ -8,7 +8,9 @@ function SelectYourPlan() {
 	const [planBilling, setPlanBilling] = useState<boolean>(false)
 
 	useEffect(() => {
-		setValue('plan_billing', planBilling === false ? 'monthly' : 'yearly')
+		setValue('plan_billing', planBilling === false ? 'monthly' : 'yearly', {
+			shouldValidate: true,
+		})
 	}, [planBilling])
 
 	return (
