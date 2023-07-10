@@ -28,7 +28,7 @@ function OptionCard({ title, icon, price, promoCall }: OptionCardProps) {
 		>
 			<input
 				type="radio"
-				onClick={(event) => {
+				onChange={(event) => {
 					setValue('plan', event.target.value, { shouldValidate: true })
 				}}
 				id={title}
