@@ -1,11 +1,11 @@
-import { useFormContext } from 'react-hook-form'
+import { useFormState } from 'react-hook-form'
 import StepControl from '../../buttons/StepControl'
 import './style.scss'
 import { useContext } from 'react'
 import { FormStepsContext } from '@/app/contexts/FormStepsContexts'
 
 function FormStepControl() {
-	const { formState } = useFormContext()
+	const { isValid } = useFormState()
 
 	const { isFirstStep, isLastStep, backStep, nextStep } =
 		useContext(FormStepsContext)
@@ -17,7 +17,7 @@ function FormStepControl() {
 					<StepControl
 						title="Go Back"
 						variant="secondary"
-						isDisabled={false}
+						isDisabled={!isValid}
 						handleStepControl={backStep}
 					/>
 				)}
@@ -28,7 +28,7 @@ function FormStepControl() {
 					<StepControl
 						title="Next Step"
 						variant="primary"
-						isDisabled={!formState.isValid}
+						isDisabled={!isValid}
 						handleStepControl={nextStep}
 					/>
 				)}
