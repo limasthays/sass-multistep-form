@@ -32,11 +32,17 @@ export default function Home() {
 				<FormProvider {...methods}>
 					<GroupStepButtons />
 					<form onSubmit={methods.handleSubmit(onSubmitMainForm)}>
-						<ContentContainer>
-							{methods.formState.isSubmitted ? <ThankUser /> : <StepHandler />}
-						</ContentContainer>
+						<div className="main-container">
+							<ContentContainer>
+								{methods.formState.isSubmitted ? (
+									<ThankUser />
+								) : (
+									<StepHandler />
+								)}
+							</ContentContainer>
 
-						{!methods.formState.isSubmitted && <FormStepControl />}
+							{!methods.formState.isSubmitted && <FormStepControl />}
+						</div>
 					</form>
 				</FormProvider>
 			</FormStepsContextProvider>

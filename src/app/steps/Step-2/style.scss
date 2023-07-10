@@ -1,0 +1,18 @@
+@import "../../styles/variables.scss";
+
+.billing-mode-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  span{
+    color: $cool-gray;
+    font-size: 14px;
+    font-weight: 500;
+
+    &.active-billing{
+      color: $purplish-blue;
+    }
+  }
+}

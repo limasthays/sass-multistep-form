@@ -9,11 +9,20 @@
 }
 
 body{
-  background-color: $magnolia;
-  background-image: url("../assets/images/bg-sidebar-mobile.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-color: $purplish-blue;
   padding: 0px 16px;
+
+  main{
+    margin: 0px auto;
+    max-width: 400px;
+
+    .main-container{
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
 
   button{
     cursor: pointer;
