@@ -18,12 +18,31 @@ export default function Home() {
 			phone: '',
 			plan_billing: 'monthly',
 			plan: '',
-			addon: [],
+			addon: [''],
 		},
 	})
 
 	const onSubmitMainForm = (data: any) => {
-		console.log('all my data: ', data)
+		const parsedAddons =
+			data.addon.length === 0
+				? ['']
+				: data.addon.map((item: any) => JSON.parse(item))
+
+		const parsedPlan = JSON.parse(data.plan)
+		const plan = { ...parsedPlan, price: parsedPlan.price[data.plan_billing] }
+		const addon =
+			data.addon.length === 0
+				? ['']
+				: parsedAddons.map((item: any) => {
+						return { ...item, price: item.price[data.plan_billing] }
+				  })
+
+		const dataToSubmit = {
+			...data,
+			plan,
+			addon,
+		}
+		console.log('resume: ', dataToSubmit)
 	}
 
 	return (

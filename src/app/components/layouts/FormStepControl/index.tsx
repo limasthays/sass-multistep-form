@@ -19,6 +19,7 @@ function FormStepControl() {
 						variant="secondary"
 						isDisabled={!isValid}
 						handleStepControl={backStep}
+						type="button"
 					/>
 				)}
 			</div>
@@ -30,9 +31,17 @@ function FormStepControl() {
 						variant="primary"
 						isDisabled={!isValid}
 						handleStepControl={nextStep}
+						type="button"
 					/>
 				)}
-				{isLastStep && <button type="submit">Submit!</button>}
+				{isLastStep && (
+					<StepControl
+						title="Submit!"
+						type="submit"
+						variant="primary"
+						isDisabled={!isValid}
+					/>
+				)}
 			</div>
 		</div>
 	)

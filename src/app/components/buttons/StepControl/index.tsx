@@ -1,8 +1,8 @@
 import './style.scss'
 
-type StepControlProps = {
+type StepControlProps = React.ComponentPropsWithoutRef<'button'> & {
 	title: string
-	handleStepControl: () => void
+	handleStepControl?: () => void
 	isDisabled: boolean
 	variant: 'primary' | 'secondary'
 }
@@ -12,10 +12,11 @@ function StepControl({
 	handleStepControl,
 	isDisabled,
 	variant,
+	type,
 }: StepControlProps) {
 	return (
 		<button
-			type="button"
+			type={type}
 			onClick={handleStepControl}
 			className={`btn-step-control ${variant} ${
 				isDisabled ? 'disabled-state' : ''

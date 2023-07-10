@@ -9,6 +9,7 @@ type AddonCardProps = {
 		yearly: number
 	}
 	isOptionSelected: boolean
+	plan_billing: 'monthly' | 'yearly'
 }
 
 export const AddonCard = ({
@@ -16,9 +17,9 @@ export const AddonCard = ({
 	description,
 	price,
 	isOptionSelected,
+	plan_billing,
 }: AddonCardProps) => {
 	const { register } = useFormContext()
-	const { plan_billing } = useWatch()
 	const billingMode = {
 		yearly: '/yr',
 		monthly: '/mo',
@@ -32,6 +33,7 @@ export const AddonCard = ({
 				>
 					<input
 						type="checkbox"
+						className="custom-checkbox"
 						id={title}
 						value={JSON.stringify({ option: title, price: price })}
 						{...register('addon')}
@@ -41,8 +43,8 @@ export const AddonCard = ({
 						<span className="addon-description">{description}</span>
 					</div>
 					<span className="addon-price">
-						+${price[plan_billing as 'monthly' | 'yearly']}
-						{billingMode[plan_billing as 'monthly' | 'yearly']}
+						+${price[plan_billing]}
+						{billingMode[plan_billing]}
 					</span>
 				</div>
 			</label>
