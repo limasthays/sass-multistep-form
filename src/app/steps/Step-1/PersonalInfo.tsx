@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form'
 import './style.scss'
 
 function PersonalInfo() {
-	const { register } = useFormContext()
+	const { register, setValue } = useFormContext()
 
 	return (
 		<>
@@ -42,7 +42,13 @@ function PersonalInfo() {
 						type="text"
 						id="phone"
 						placeholder="e.g. +1 234 567 890"
-						{...register('phone', { required: 'Phone field is required' })}
+						{...register('phone', {
+							required: 'Phone field is required',
+							onChange: (event) => {
+								const numericInput = event.target.value.replace(/\D/g, '')
+								setValue('phone', numericInput)
+							},
+						})}
 					/>
 				</div>
 			</div>
